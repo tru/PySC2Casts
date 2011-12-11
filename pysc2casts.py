@@ -10,6 +10,8 @@ from StringIO import StringIO
 
 from lxml import etree
 
+DEVICE_ID='replaceme'
+
 TIMEFRAME_DAY='day'
 TIMEFRAME_WEEK='week'
 TIMEFRAME_MONTH='month'
@@ -27,7 +29,7 @@ def sc2request(method, args={}):
     url = BASE_URL + method
 
     # filedate might be static, not sure
-    args.update({"refdate":time.strftime('%d-%m-%Y'), "filedate":'30-05-2011', 'deviceid':'sc2castsforplex'})
+    args.update({"refdate":time.strftime('%d-%m-%Y'), "filedate":'30-05-2011', 'deviceid':DEVICE_ID})
     argstr = urllib.urlencode(args)
     url += '?%s' % argstr
     print url
